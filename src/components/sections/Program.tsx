@@ -15,33 +15,36 @@ export default function Program() {
   ];
 
   return (
-    <section className="section-gray py-[85px]">
+    <section className="section-gray py-[60px] lg:py-[85px]">
       <div className="container">
-        <div className="flex flex-col items-center gap-[40px]">
+        <div className="flex flex-col items-center gap-[30px] lg:gap-[40px]">
+          
           {/* Header */}
-          <div className="flex flex-col items-center gap-[18px] text-center max-w-[690px]">
-            <h2 className="text-[45px] font-bold text-[#1c1c1c] leading-[1.13]">
+          <div className="flex flex-col items-center gap-[15px] lg:gap-[18px] text-center max-w-[690px]">
+            <h2 className="heading-lg">
               התוכנית המשולבת של קרן משיאים
             </h2>
-            <p className="text-[26px] font-light text-[#242424] tracking-[-0.26px] leading-[1.5]">
+            <p className="text-xl">
               הפתרון הייחודי שלנו לשילוב של תשואה גבוהה ויציבות.
             </p>
           </div>
 
           {/* Program Card */}
-          <div className="flex flex-col gap-[30px] w-full max-w-[1000px]">
-            <div className="program-card h-[422px]">
-              <div className="flex items-start justify-between h-full">
+          <div className="w-full max-w-[1000px]">
+            <div className="bg-white border-[1.5px] border-black rounded-[16px] shadow-[0px_6px_14px_rgba(145,145,145,0.1),0px_25px_25px_rgba(145,145,145,0.09),0px_56px_34px_rgba(145,145,145,0.05)] p-[25px] lg:p-[50px]">
+              
+              {/* Desktop Layout */}
+              <div className="hidden lg:flex items-start justify-between h-[322px]">
+                
                 {/* Features List - Left */}
-                <div className="flex flex-col gap-[30px]">
+                <div className="flex flex-col gap-[20px] lg:gap-[26px]">
                   {features.map((feature, index) => (
                     <div key={index} className="flex items-center gap-[14px]">
-                      <p className="text-[18px] font-normal text-black text-right max-w-[257px]">
+                      <p className="text-[18px] font-normal text-black text-right max-w-[257px] leading-[1.5]">
                         {feature}
                       </p>
-                      {/* Check Circle */}
-                      <div className="w-[26.5px] h-[26.5px] rounded-full bg-[#1c1c1c] flex items-center justify-center flex-shrink-0">
-                        <svg className="w-[11px] h-[8px]" viewBox="0 0 11 8" fill="none">
+                      <div className="check-circle flex-shrink-0">
+                        <svg width="11" height="8" viewBox="0 0 11 8" fill="none">
                           <path d="M1 4L4 7L10 1" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                         </svg>
                       </div>
@@ -50,16 +53,16 @@ export default function Program() {
                 </div>
 
                 {/* Divider */}
-                <div className="w-[1px] h-full bg-black self-stretch mx-[60px]" />
+                <div className="w-[1px] h-full bg-black mx-[40px] lg:mx-[60px]" />
 
                 {/* Program Info - Right */}
                 <div className="flex flex-col justify-between h-full max-w-[376px]">
-                  <div className="flex flex-col gap-[35px]">
-                    <div className="flex flex-col gap-[20px] text-black text-right">
-                      <h3 className="text-[35px] font-bold leading-[1.6]">
+                  <div className="flex flex-col gap-[25px] lg:gap-[35px]">
+                    <div className="flex flex-col gap-[15px] lg:gap-[20px] text-right">
+                      <h3 className="heading-md">
                         התוכנית המשולבת
                       </h3>
-                      <p className="text-[22px] font-normal">
+                      <p className="text-[20px] lg:text-[22px] font-normal text-black">
                         שוק ההון & הגמ&quot;ח המרכזי
                       </p>
                     </div>
@@ -70,19 +73,64 @@ export default function Program() {
 
                   {/* Buttons */}
                   <div className="flex flex-col gap-[15px]">
-                    <Link href={`/${locale}/join`} className="btn btn-primary w-full">
-                      <span className="text-[20px] font-semibold">לעוד פרטים והצטרפות</span>
+                    <Link href={`/${locale}/join`} className="btn btn-primary w-full justify-center">
+                      <span>לעוד פרטים והצטרפות</span>
                     </Link>
-                    <Link href={`/${locale}/contact`} className="btn btn-outline w-full">
-                      <span className="text-[20px] font-semibold">ליצירת קשר עם נציג</span>
+                    <Link href={`/${locale}/contact`} className="btn btn-outline w-full justify-center">
+                      <span>ליצירת קשר עם נציג</span>
                     </Link>
                   </div>
+                </div>
+              </div>
+
+              {/* Mobile Layout */}
+              <div className="lg:hidden flex flex-col gap-[30px]">
+                {/* Program Info */}
+                <div className="flex flex-col gap-[20px] text-right">
+                  <h3 className="heading-md">
+                    התוכנית המשולבת
+                  </h3>
+                  <p className="text-[18px] font-normal text-black">
+                    שוק ההון & הגמ&quot;ח המרכזי
+                  </p>
+                  <p className="text-[16px] font-light text-black leading-[1.5]">
+                    מתאים למי שרוצה תשואה עם וודאות וזקוק לסכומים גבוהים לחתונות הילדים.
+                  </p>
+                </div>
+
+                {/* Divider */}
+                <div className="w-full h-[1px] bg-gray-300" />
+
+                {/* Features */}
+                <div className="flex flex-col gap-[16px]">
+                  {features.map((feature, index) => (
+                    <div key={index} className="flex items-center gap-[12px]">
+                      <p className="text-[16px] font-normal text-black text-right flex-1">
+                        {feature}
+                      </p>
+                      <div className="check-circle flex-shrink-0">
+                        <svg width="11" height="8" viewBox="0 0 11 8" fill="none">
+                          <path d="M1 4L4 7L10 1" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                        </svg>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Buttons */}
+                <div className="flex flex-col gap-[12px]">
+                  <Link href={`/${locale}/join`} className="btn btn-primary w-full justify-center">
+                    <span>לעוד פרטים והצטרפות</span>
+                  </Link>
+                  <Link href={`/${locale}/contact`} className="btn btn-outline w-full justify-center">
+                    <span>ליצירת קשר עם נציג</span>
+                  </Link>
                 </div>
               </div>
             </div>
 
             {/* Alternative link */}
-            <p className="text-[24px] font-light text-[#242424] text-center underline tracking-[-0.24px] leading-[1.5] cursor-pointer hover:text-[#1c1c1c]">
+            <p className="text-[18px] lg:text-[24px] font-light text-[#242424] text-center underline tracking-[-0.24px] leading-[1.5] cursor-pointer hover:text-[#1c1c1c] mt-[25px] lg:mt-[30px]">
               מעוניינים בנתיב השקעה אלטרנטיבי? צפו בתוכניות נוספות &gt;
             </p>
           </div>
@@ -91,4 +139,3 @@ export default function Program() {
     </section>
   );
 }
-

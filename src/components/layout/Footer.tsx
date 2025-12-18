@@ -39,17 +39,32 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-[#252525] backdrop-blur-[12.5px] border-t-2 border-white pt-[50px] pb-[30px] px-[50px]">
-      <div className="container-wide">
-        <div className="flex flex-col gap-[70px]">
+    <footer className="bg-[#252525] backdrop-blur-[12.5px] border-t-2 border-white/20 pt-[40px] lg:pt-[50px] pb-[25px] lg:pb-[30px]">
+      <div className="container">
+        <div className="flex flex-col gap-[50px] lg:gap-[70px]">
+          
           {/* Top Row */}
-          <div className="flex items-start justify-between">
-            {/* Social Icons - Left */}
-            <div className="flex items-center gap-[20px]">
+          <div className="flex flex-col lg:flex-row items-start lg:items-start justify-between gap-[40px]">
+            
+            {/* Mobile: Logo First */}
+            <div className="lg:hidden flex items-center gap-2 order-1">
+              <svg className="w-[35px] h-[35px]" viewBox="0 0 40 40" fill="none">
+                <circle cx="20" cy="20" r="18" stroke="white" strokeWidth="1.5"/>
+                <path d="M12 26V16L20 22L28 16V26" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                <circle cx="20" cy="12" r="2" fill="#2DD4BF"/>
+              </svg>
+              <div className="flex flex-col">
+                <span className="text-white text-[20px] font-bold">משיאים</span>
+                <span className="text-gray-400 text-[10px]">מחתנים באחריות.</span>
+              </div>
+            </div>
+
+            {/* Social Icons - Left on Desktop */}
+            <div className="flex items-center gap-[20px] order-3 lg:order-1">
               {/* WhatsApp */}
               <a 
                 href="#" 
-                className="w-[40px] h-[40px] bg-white rounded-full flex items-center justify-center shadow-[0px_4px_4px_0px_rgba(73,157,193,0.09)]"
+                className="w-[40px] h-[40px] bg-white rounded-full flex items-center justify-center shadow-md hover:shadow-lg transition-shadow"
                 aria-label="WhatsApp"
               >
                 <svg className="w-[19px] h-[19px]" viewBox="0 0 24 24" fill="#252525">
@@ -59,27 +74,28 @@ export default function Footer() {
               {/* Email */}
               <a 
                 href="mailto:info@mesieim.co.il" 
-                className="w-[40px] h-[40px] bg-white rounded-full flex items-center justify-center shadow-[0px_4px_4px_0px_rgba(73,157,193,0.09)]"
+                className="w-[40px] h-[40px] bg-white rounded-full flex items-center justify-center shadow-md hover:shadow-lg transition-shadow"
                 aria-label="Email"
               >
                 <svg className="w-[19px] h-[19px]" viewBox="0 0 24 24" fill="#252525">
-                  <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                  <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
                 </svg>
               </a>
             </div>
 
-            {/* Links + Logo - Right */}
-            <div className="flex items-start gap-[120px]">
-              {/* Links Columns */}
-              <div className="flex items-start gap-[60px]">
-                {Object.entries(footerLinks).reverse().map(([key, section]) => (
-                  <div key={key} className="flex flex-col gap-[9px] text-right text-white">
-                    <p className="text-[16px] font-bold">{section.title}</p>
+            {/* Links + Logo - Right on Desktop */}
+            <div className="flex flex-col lg:flex-row items-start lg:items-start gap-[30px] lg:gap-[120px] order-2">
+              
+              {/* Links Grid */}
+              <div className="grid grid-cols-2 lg:flex gap-[25px] lg:gap-[60px]">
+                {Object.entries(footerLinks).map(([key, section]) => (
+                  <div key={key} className="flex flex-col gap-[8px] lg:gap-[9px] text-right">
+                    <p className="text-[14px] lg:text-[16px] font-bold text-white">{section.title}</p>
                     {section.links.map((link, index) => (
                       <Link 
                         key={index}
                         href={`/${locale}${link.href}`}
-                        className="text-[14px] font-normal hover:underline"
+                        className="text-[13px] lg:text-[14px] font-normal text-white hover:underline"
                       >
                         {link.label}
                       </Link>
@@ -88,36 +104,45 @@ export default function Footer() {
                 ))}
               </div>
 
-              {/* Logo */}
-              <div className="w-[159px] h-[44px] flex items-center justify-center mix-blend-luminosity">
-                <span className="text-white text-xl font-bold">קרן משיאים</span>
+              {/* Desktop Logo */}
+              <div className="hidden lg:flex items-center gap-2 mix-blend-luminosity">
+                <svg className="w-[40px] h-[40px]" viewBox="0 0 40 40" fill="none">
+                  <circle cx="20" cy="20" r="18" stroke="white" strokeWidth="1.5"/>
+                  <path d="M12 26V16L20 22L28 16V26" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  <circle cx="20" cy="12" r="2" fill="white"/>
+                </svg>
+                <div className="flex flex-col">
+                  <span className="text-white text-[20px] font-bold">משיאים</span>
+                  <span className="text-gray-400 text-[10px]">מחתנים באחריות.</span>
+                </div>
               </div>
             </div>
           </div>
 
           {/* Bottom Row */}
-          <div className="flex items-center justify-between">
-            {/* Credits - Left */}
-            <div className="flex items-center gap-[20px] text-white text-[14px]">
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-[20px] pt-[20px] border-t border-gray-700">
+            
+            {/* Credits - Left on Desktop */}
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-x-[15px] lg:gap-x-[20px] gap-y-[8px] text-white text-[12px] lg:text-[14px] order-2 lg:order-1">
               <span>
                 UX/UI By{' '}
-                <a href="#" className="underline">Dvir Frishtik</a>
+                <a href="#" className="underline hover:opacity-80">Dvir Frishtik</a>
                 {' & '}
-                <a href="#" className="underline">Mindwayz</a>
+                <a href="#" className="underline hover:opacity-80">Mindwayz</a>
               </span>
-              <span className="w-[1px] h-[18px] bg-white" />
+              <span className="hidden lg:inline w-[1px] h-[18px] bg-white/50" />
               <span>
                 Development By{' '}
-                <a href="#" className="underline">tik-tak</a>
+                <a href="#" className="underline hover:opacity-80">tik-tak</a>
               </span>
             </div>
 
-            {/* Legal Links - Right */}
-            <div className="flex items-center gap-[60px]">
-              <span className="text-white text-[14px]">
+            {/* Legal Links - Right on Desktop */}
+            <div className="flex flex-col lg:flex-row items-center gap-[15px] lg:gap-[60px] order-1 lg:order-2">
+              <span className="text-white text-[12px] lg:text-[14px] text-center">
                 © כל הזכויות שמורות לקרן משיאים בע״מ
               </span>
-              <div className="flex items-center gap-[37px] text-white text-[14px]">
+              <div className="flex items-center gap-[20px] lg:gap-[37px] text-white text-[12px] lg:text-[14px]">
                 <Link href={`/${locale}/accessibility`} className="underline hover:opacity-80">
                   נגישות
                 </Link>

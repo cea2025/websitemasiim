@@ -16,36 +16,21 @@ export default function Statistics() {
   return (
     <section className="section bg-white">
       <div className="container">
-        <div className="flex items-center justify-between gap-[172px]">
-          {/* Stats Grid - Left */}
-          <div className="flex flex-col gap-[20px]">
-            <div className="flex gap-[20px]">
-              {stats.slice(0, 2).map((stat, index) => (
+        <div className="flex flex-col-reverse lg:flex-row items-center justify-between gap-[40px] lg:gap-[80px]">
+          
+          {/* Stats Grid - Left on Desktop */}
+          <div className="w-full lg:w-auto">
+            <div className="grid grid-cols-2 gap-[15px] lg:gap-[20px]">
+              {stats.map((stat, index) => (
                 <div 
                   key={index}
-                  className="stat-card"
+                  className="bg-white rounded-[20px] shadow-[0px_6px_13px_rgba(145,145,145,0.1),0px_23px_23px_rgba(145,145,145,0.09),0px_51px_31px_rgba(145,145,145,0.05)] p-[20px] lg:p-[30px] w-full lg:w-[280px] h-[160px] lg:h-[209px] flex flex-col items-center justify-center gap-[15px] lg:gap-[20px] text-center"
                 >
-                  <p className="text-[35px] font-bold text-black whitespace-nowrap">
-                    {stat.value}{' '}
-                    {stat.unit && <span className="font-normal text-[30px]">{stat.unit}</span>}
+                  <p className="text-[24px] lg:text-[35px] font-bold text-black whitespace-nowrap leading-[1.55]">
+                    {stat.value}
+                    {stat.unit && <span className="font-normal text-[20px] lg:text-[30px]"> {stat.unit}</span>}
                   </p>
-                  <p className="text-[18px] font-normal text-black leading-[1.55]">
-                    {stat.description}
-                  </p>
-                </div>
-              ))}
-            </div>
-            <div className="flex gap-[20px]">
-              {stats.slice(2, 4).map((stat, index) => (
-                <div 
-                  key={index}
-                  className="stat-card"
-                >
-                  <p className="text-[35px] font-bold text-black whitespace-nowrap">
-                    {stat.value}{' '}
-                    {stat.unit && <span className="font-normal text-black">{stat.unit}</span>}
-                  </p>
-                  <p className="text-[18px] font-normal text-black leading-[1.55]">
+                  <p className="text-[14px] lg:text-[18px] font-normal text-black leading-[1.55]">
                     {stat.description}
                   </p>
                 </div>
@@ -53,29 +38,30 @@ export default function Statistics() {
             </div>
           </div>
 
-          {/* Text Content - Right */}
-          <div className="flex flex-col gap-[43px] max-w-[598px] items-end">
-            <h2 className="text-[45px] font-bold text-[#1c1c1c] leading-[1.3] text-right">
+          {/* Text Content - Right on Desktop */}
+          <div className="flex flex-col gap-[30px] lg:gap-[43px] max-w-[598px] text-right">
+            <h2 className="heading-lg leading-[1.3]">
               <span className="font-light">אנחנו מציעים </span>
-              פתרון חכם
+              <span className="font-bold">פתרון חכם</span>
               <span className="font-light"> לאתגר הכלכלי של המשפחה החרדית</span>
             </h2>
-            <p className="text-[22px] font-light text-[#182f43] leading-[1.5] text-right">
+            <p className="text-lg">
               מימון נישואי הילדים הוא מהאתגרים הכלכליים המשמעותיים ביותר עבור משפחות חרדיות.
               <br /><br />
               העלויות, שכוללות את הוצאות החתונה עצמה לצד מענק לזוג הצעיר לרכישת דירה, מסתכמות כיום בכ-220,000–240,000 ש&quot;ח למשפחה,{' '}
               <span className="font-semibold">וצפויות לעלות משמעותית בעשורים הקרובים.</span>
             </p>
-            <Link href={`/${locale}/calculator`} className="btn btn-primary">
-              <svg className="w-[16px] h-[24px] arrow-icon" viewBox="0 0 16 24" fill="none">
-                <path d="M6 18L10 12L6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-              <span className="text-[20px] font-semibold">לחישוב הוצאות חתונה</span>
-            </Link>
+            <div className="flex justify-end">
+              <Link href={`/${locale}/calculator`} className="btn btn-primary">
+                <svg className="btn-arrow" viewBox="0 0 16 24" fill="none">
+                  <path d="M10 6L6 12L10 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+                <span>לחישוב הוצאות חתונה</span>
+              </Link>
+            </div>
           </div>
         </div>
       </div>
     </section>
   );
 }
-
