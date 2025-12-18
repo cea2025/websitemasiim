@@ -1,6 +1,6 @@
 'use client';
 
-import { CheckCircle, ChevronLeft } from 'lucide-react';
+import { ChevronLeft } from 'lucide-react';
 
 const benefits = [
   'פריסה נוחה של ההפקדות בהתאם ליכולות המשפחה',
@@ -10,104 +10,127 @@ const benefits = [
   'שירות לקוחות זמין ומסור',
 ];
 
+// Checkmark Icon Component
+const CheckIcon = () => (
+  <svg className="w-[26px] h-[26px] flex-shrink-0" viewBox="0 0 26 26" fill="none">
+    <circle cx="13" cy="13" r="12" fill="#2DD4BF" />
+    <path d="M8 13L11.5 16.5L18 10" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+  </svg>
+);
+
 export default function ProgramsHero() {
   return (
-    <section className="bg-[#f8f8f8] py-16 md:py-24">
-      <div className="container">
-        {/* Page Title */}
-        <div className="text-center mb-12">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[var(--dark-main)] mb-6">
-            לחסוך לנישואי הילדים עם פתרון חכם
-            <br />
-            שמעניק תשואה גבוהה יחד עם יציבות.
-          </h1>
-        </div>
-
-        {/* Main Program Card */}
-        <div className="max-w-[1000px] mx-auto bg-white rounded-2xl shadow-lg overflow-hidden">
+    <section className="bg-[#e7e7e7] lg:bg-[#f8f8f8] py-[65px] px-[10px] lg:py-24">
+      <div className="flex flex-col gap-[40px] lg:gap-[60px] items-center">
+        
+        {/* Badge + Title */}
+        <div className="flex flex-col gap-[15px] items-center w-full max-w-[285px] lg:max-w-[800px]">
           {/* Badge */}
-          <div className="bg-[#fef3c7] border-b border-[#f59e0b] px-6 py-3 flex items-center justify-center gap-2">
-            <span className="text-sm font-medium text-[var(--dark-main)]">החסכון המשולב</span>
-            <div className="w-5 h-5 rounded-full bg-[#2dd4bf] flex items-center justify-center">
+          <div className="bg-[#2a2a2a] rounded-full px-[25px] py-[15px] lg:py-[10px] flex items-center justify-center gap-[10px]">
+            <span className="text-white text-[13px] lg:text-[14px] font-bold">החסכון המשולב</span>
+            <div className="w-[18px] h-[18px] rounded-full bg-[#2dd4bf] flex items-center justify-center">
               <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
               </svg>
             </div>
           </div>
+          
+          {/* Main Title */}
+          <h1 className="text-[24px] lg:text-[40px] font-bold text-[#1c1c1c] text-center leading-[1.3] tracking-[-0.72px]">
+            לחסוך לנישואי הילדים עם פתרון חכם שמעניק תשואה גבוהה יחד עם יציבות.
+          </h1>
+        </div>
 
-          <div className="p-8 md:p-12">
-            <div className="grid md:grid-cols-2 gap-8 md:gap-12">
-              {/* Benefits List */}
-              <div className="space-y-4">
-                {benefits.map((benefit, index) => (
-                  <div key={index} className="flex items-start gap-3 rtl:flex-row-reverse">
-                    <CheckCircle className="w-6 h-6 text-[#2dd4bf] flex-shrink-0 mt-0.5" />
-                    <span className="text-[var(--gray-text)] text-base leading-relaxed">{benefit}</span>
-                  </div>
-                ))}
-              </div>
-
-              {/* Program Info */}
-              <div className="border-r-0 md:border-r border-[#e5e7eb] md:pr-8">
-                <div className="mb-6">
-                  <h2 className="text-xl md:text-2xl font-bold text-[var(--dark-main)] mb-2">
+        {/* Programs Container */}
+        <div className="flex flex-col gap-[60px] items-center w-full max-w-[316px] lg:max-w-[1000px]">
+          
+          {/* Main Program Card */}
+          <div className="w-full bg-white rounded-[16.5px] border-[1.5px] border-black p-[35px] shadow-[0px_6.614px_14.331px_0px_rgba(145,145,145,0.1),0px_25.354px_25.354px_0px_rgba(145,145,145,0.09),0px_56.22px_34.173px_0px_rgba(145,145,145,0.05),0px_100.315px_39.685px_0px_rgba(145,145,145,0.01),0px_157.638px_44.094px_0px_rgba(145,145,145,0)]">
+            <div className="flex flex-col lg:flex-row gap-[35px] lg:gap-[50px]">
+              
+              {/* Program Info - Right side on desktop */}
+              <div className="lg:w-1/2 lg:order-2 lg:border-r lg:border-black/10 lg:pr-[50px]">
+                <div className="flex flex-col gap-[18px] mb-[25px]">
+                  <h2 className="text-[28px] lg:text-[32px] font-bold text-black leading-[1.6]">
                     התוכנית המשולבת
                   </h2>
-                  <p className="text-[var(--light-gray)] text-sm">
+                  <p className="text-[20px] lg:text-[22px] text-black font-normal leading-[1.6]">
                     שוק ההון & הגמ"ח המרכזי
                   </p>
                 </div>
-
-                <p className="text-[var(--gray-text)] text-base mb-8 leading-relaxed">
+                <p className="text-[16px] text-black font-light leading-[1.5]">
                   מתאים למי שרוצה תשואה עם וודאות וזקוק לסכומים גבוהים לחתונות הילדים.
                 </p>
+              </div>
 
-                {/* CTA Buttons */}
-                <div className="space-y-3">
-                  <button className="w-full bg-[#2dd4bf] hover:bg-[#14b8a6] text-[var(--dark-main)] font-semibold py-4 px-6 rounded-lg transition-colors flex items-center justify-center gap-2">
-                    לסימולטור
-                    <ChevronLeft className="w-5 h-5" />
-                  </button>
-                  <button className="w-full bg-white border-2 border-[var(--dark-main)] text-[var(--dark-main)] font-semibold py-4 px-6 rounded-lg hover:bg-[var(--dark-main)] hover:text-white transition-colors">
-                    יצירת קשר
+              {/* Separator Line - Mobile */}
+              <div className="w-full h-[1px] bg-black/20 lg:hidden" />
+
+              {/* Benefits List - Left side on desktop */}
+              <div className="flex flex-col gap-[20px] lg:w-1/2 lg:order-1">
+                {benefits.map((benefit, index) => (
+                  <div key={index} className="flex items-center gap-[13px] justify-end">
+                    <p className="text-[14px] lg:text-[15px] text-black font-normal leading-[1.5] text-right flex-1">
+                      {benefit}
+                    </p>
+                    <CheckIcon />
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* CTA Buttons */}
+            <div className="flex flex-col gap-[15px] mt-[35px]">
+              <button className="w-full bg-[#242424] hover:bg-[#1a1a1a] text-[#f8f8f8] font-semibold h-[45px] px-[15px] rounded flex items-center justify-center gap-[15px] transition-colors">
+                <ChevronLeft className="w-[16px] h-[24px] rotate-180" />
+                <span className="text-[16px]">לעוד פרטים והצטרפות</span>
+              </button>
+              <button className="w-full bg-white border border-black text-[#1e1e1e] font-semibold h-[45px] px-[15px] rounded flex items-center justify-center transition-colors hover:bg-gray-50">
+                <span className="text-[16px]">ליצירת קשר עם נציג</span>
+              </button>
+            </div>
+          </div>
+
+          {/* Additional Programs Section */}
+          <div className="w-full flex flex-col gap-[20px] items-center">
+            <h3 className="text-[24px] font-bold text-[#1c1c1c] text-center leading-[1.3] tracking-[-0.72px]">
+              תוכניות נוספות
+            </h3>
+            
+            <div className="flex flex-col lg:flex-row gap-[20px] w-full">
+              {/* Investment Program */}
+              <div className="flex-1 bg-white rounded-[16.5px] px-[50px] py-[30px] shadow-[0px_6.614px_14.331px_0px_rgba(145,145,145,0.1),0px_25.354px_25.354px_0px_rgba(145,145,145,0.09),0px_56.22px_34.173px_0px_rgba(145,145,145,0.05),0px_100.315px_39.685px_0px_rgba(145,145,145,0.01),0px_157.638px_44.094px_0px_rgba(145,145,145,0)]">
+                <div className="flex flex-col gap-[47px] items-center">
+                  <div className="flex flex-col gap-[5.5px] items-center justify-center text-black text-center">
+                    <h4 className="text-[20px] font-semibold leading-[1.6]">
+                      תוכנית השקעות
+                    </h4>
+                    <p className="text-[16px] font-light leading-[1.6]">
+                      השקעה בשוק ההון בלבד ע״י הצמדה למדד S&P500
+                    </p>
+                  </div>
+                  <button className="w-full border border-black text-[#1e1e1e] font-semibold h-[45px] px-[15px] rounded flex items-center justify-center transition-colors hover:bg-gray-50">
+                    <span className="text-[16px]">ליצירת קשר עם נציג</span>
                   </button>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
 
-        {/* Additional Programs */}
-        <div className="max-w-[800px] mx-auto mt-12">
-          <h3 className="text-center text-lg font-medium text-[var(--gray-text)] mb-6">
-            תוכניות נוספות שהקרן מציעה
-          </h3>
-
-          <div className="grid md:grid-cols-2 gap-6">
-            {/* Custom Gemach Program */}
-            <div className="bg-white rounded-xl p-6 border border-[#e5e7eb] hover:shadow-md transition-shadow">
-              <h4 className="text-lg font-bold text-[var(--dark-main)] mb-2 text-center">
-                תוכנית גמ״ח מותאמת
-              </h4>
-              <p className="text-[var(--gray-text)] text-sm text-center mb-4">
-                השקעה בשוק ההון בשילוב גמ״ח לבחירתכם
-              </p>
-              <button className="w-full text-[var(--dark-main)] font-medium py-2 px-4 rounded-lg border border-[#e5e7eb] hover:bg-[#f8f8f8] transition-colors text-sm">
-                לצפייה באישור הכלכלי
-              </button>
-            </div>
-
-            {/* Investment Program */}
-            <div className="bg-white rounded-xl p-6 border border-[#e5e7eb] hover:shadow-md transition-shadow">
-              <h4 className="text-lg font-bold text-[var(--dark-main)] mb-2 text-center">
-                תוכנית השקעות
-              </h4>
-              <p className="text-[var(--gray-text)] text-sm text-center mb-4">
-                השקעה בשוק ההון בלבד ע״י הצמדה למדד S&P500
-              </p>
-              <button className="w-full text-[var(--dark-main)] font-medium py-2 px-4 rounded-lg border border-[#e5e7eb] hover:bg-[#f8f8f8] transition-colors text-sm">
-                לצפייה באישור הכלכלי
-              </button>
+              {/* Custom Gemach Program */}
+              <div className="flex-1 bg-white rounded-[16.5px] px-[50px] py-[30px] shadow-[0px_6.614px_14.331px_0px_rgba(145,145,145,0.1),0px_25.354px_25.354px_0px_rgba(145,145,145,0.09),0px_56.22px_34.173px_0px_rgba(145,145,145,0.05),0px_100.315px_39.685px_0px_rgba(145,145,145,0.01),0px_157.638px_44.094px_0px_rgba(145,145,145,0)]">
+                <div className="flex flex-col gap-[47px] items-center">
+                  <div className="flex flex-col gap-[5.5px] items-center justify-center text-black text-center">
+                    <h4 className="text-[20px] font-semibold leading-[1.6]">
+                      תוכנית גמ״ח מותאמת
+                    </h4>
+                    <p className="text-[16px] font-light leading-[1.6]">
+                      השקעה בשוק ההון בשילוב גמ״ח לבחירתכם
+                    </p>
+                  </div>
+                  <button className="w-full border border-black text-[#1e1e1e] font-semibold h-[45px] px-[15px] rounded flex items-center justify-center transition-colors hover:bg-gray-50">
+                    <span className="text-[16px]">ליצירת קשר עם נציג</span>
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -115,4 +138,5 @@ export default function ProgramsHero() {
     </section>
   );
 }
+
 
